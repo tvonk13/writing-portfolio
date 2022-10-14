@@ -1,0 +1,25 @@
+import { Box, Typography } from "@mui/material";
+import Preview from "./Preview";
+import { useEffect } from "react";
+import { useAllPrismicDocumentsByType } from "@prismicio/react";
+
+export default function OverviewSection({ sectionTitle, documentType }) {
+    const [documents] = useAllPrismicDocumentsByType(documentType);
+
+    useEffect(() => {
+        window.scrollTo({top: 0});
+    }, []);
+
+    return (
+        <Box display="flex" flexDirection="column">
+            <Typography
+                variant="h6"
+                color="primary.light"
+                sx={{ borderBottom: '1px solid', borderColor: 'primary.light' }}
+            >
+                {sectionTitle}
+            </Typography>
+            {documents?.map((document) => <Preview document={document} />)}
+        </Box>
+    );
+}
