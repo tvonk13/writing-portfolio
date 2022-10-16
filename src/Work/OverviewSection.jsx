@@ -19,7 +19,9 @@ export default function OverviewSection({ sectionTitle, documentType }) {
             >
                 {sectionTitle}
             </Typography>
-            {documents?.map((document) => <Preview document={document} />)}
+            {documents?.map((document, index) =>
+                <Preview key={index} documentType={documentType} document={document} />
+            )}
         </Box>
     );
 }

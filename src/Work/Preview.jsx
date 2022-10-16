@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import { PrismicRichText } from "@prismicio/react";
 
-export default function Preview({ document }) {
+export default function Preview({ documentType, document }) {
     return (
         <Box
             sx={{
@@ -21,7 +21,7 @@ export default function Preview({ document }) {
                 }
             }}
             component={Link}
-            to={`/work/${document?.uid}`}
+            to={`/${documentType}/${document?.uid}`}
         >
             <PrismicRichText
                 field={document?.data.title}

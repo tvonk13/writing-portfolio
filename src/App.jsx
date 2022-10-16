@@ -14,11 +14,11 @@ function App() {
           <Box display="flex">
               <CssBaseline />
               <Nav />
-              <Box minHeight='100vh' py={5} px={{ xs: 4, sm: 10 }}>
+              <Box minHeight='100vh' py={5} px={{ xs: 4, sm: 10 }} width="100%" id="content-container" >
                   <Box height={{ xs: '40px', sm: '0px' }} />
                   <Routes>
                       <Route exact path="/contact" element={<Contact />} />
-                      <Route exact path="/work/:workId" element={<Work />} />
+                      <Route exact path="/:type/:documentUid" element={<Work />} />
                       <Route exact path="/work" element={<WorkOverview />} />
                       <Route exact path="/about" element={<About />} />
                       <Route exact path="/" element={<About />} />
