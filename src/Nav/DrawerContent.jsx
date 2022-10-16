@@ -34,7 +34,7 @@ export default function DrawerContent({ onDrawerToggle }) {
                     <SubMenu title="Short Stories" onDrawerToggle={onDrawerToggle} documentType="short_story" />
                     <SubMenu title="Poetry" onDrawerToggle={onDrawerToggle} documentType="poem" />
                 </Stack>
-                {/*<MenuItem variant="h5" component={Link} to="contact" onClick={onDrawerToggle}>Contact</MenuItem>*/}
+                <MenuItem variant="h5" component={Link} to="contact" onClick={onDrawerToggle}>Contact</MenuItem>
             </Stack>
         </Box>
     );
