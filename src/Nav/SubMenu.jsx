@@ -38,7 +38,7 @@ export default function SubMenu({ documentType, title, onDrawerToggle}) {
             </Box>
             <Collapse in={open}>
                 <Stack pl={2} spacing={1}>
-                    {documents?.length === 0 ?
+                    {documents?.length <= 0 ?
                         "Coming Soon!" :
                         documents?.map((document, index) =>
                             <SubMenuItem
