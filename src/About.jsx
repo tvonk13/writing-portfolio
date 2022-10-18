@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSinglePrismicDocument, PrismicRichText } from "@prismicio/react";
 
 export default function About() {
-    const [document] = useSinglePrismicDocument('about');
+    const [about] = useSinglePrismicDocument('about');
 
     useEffect(() => {
         window.scrollTo({top: 0});
@@ -12,9 +12,9 @@ export default function About() {
     return (
         <Box display="flex" flexDirection={{ xs: 'column', lg: 'row' }} alignItems={{ xs: 'center', lg: 'flex-start' }}>
             <Box width={{ xs: '90%', lg: '50%'}} mr={{ xs: 0, lg: 10}} mb={{ xs: 2, lg: 0 }} maxWidth={500}>
-                {document?.data.profile_image.url &&
+                {about?.data.profile_image.url &&
                     <img
-                        src={document?.data.profile_image.url}
+                        src={about?.data.profile_image.url}
                         alt="profile"
                         style={{ width: '100%' }}
                     />
@@ -22,7 +22,7 @@ export default function About() {
             </Box>
             <Stack spacing={1} width={{ xs: '90%', lg: '50%'}}>
                 <PrismicRichText
-                    field={document?.data.about}
+                    field={about?.data.about}
                     components={{
                         paragraph: ({children}) => <Typography>{children}</Typography>,
                         heading1: ({children}) => <Typography variant="h1">{children}</Typography>,

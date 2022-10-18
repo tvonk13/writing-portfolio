@@ -5,8 +5,6 @@ import About from "./About";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import WorkOverview from "./Work/WorkOverview";
 import Work from "./Work/Work";
-import Contact from "./Contact";
-
 
 function App() {
   return (
@@ -17,7 +15,6 @@ function App() {
               <Box minHeight='100vh' py={5} px={{ xs: 4, sm: 10 }} width="100%" id="content-container" >
                   <Box height={{ xs: '40px', sm: '0px' }} />
                   <Routes>
-                      <Route exact path="/contact" element={<Contact />} />
                       <Route exact path="/:type/:documentUid" element={<Work />} />
                       <Route exact path="/work" element={<WorkOverview />} />
                       <Route exact path="/about" element={<About />} />
