@@ -38,19 +38,22 @@ export default function SubMenu({ documentType, title, onDrawerToggle}) {
             </Box>
             <Collapse in={open}>
                 <Stack pl={2} spacing={1}>
-                    {documents?.map((document, index) =>
-                        <SubMenuItem
-                            key={index}
-                            component={Link}
-                            to={`/${documentType}/${document.uid}`}
-                            onClick={onDrawerToggle}
-                        >
-                            <PrismicRichText
-                                field={document.data.title}
-                                components={{heading1: ({children}) => <span>{children}</span>}}
-                            />
-                        </SubMenuItem>
-                    )}
+                    {documents?.length === 0 ?
+                        "Coming Soon!" :
+                        documents?.map((document, index) =>
+                            <SubMenuItem
+                                key={index}
+                                component={Link}
+                                to={`/${documentType}/${document.uid}`}
+                                onClick={onDrawerToggle}
+                            >
+                                <PrismicRichText
+                                    field={document.data.title}
+                                    components={{heading1: ({children}) => <span>{children}</span>}}
+                                />
+                            </SubMenuItem>
+                        )
+                    }
                 </Stack>
             </Collapse>
         </Stack>

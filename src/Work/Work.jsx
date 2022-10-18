@@ -31,7 +31,7 @@ export default function Work() {
                     { year: 'numeric', month: 'long', day: 'numeric' })}
                 </Box>
             }
-            {work?.data.pdf ?
+            {work?.data.pdf?.url ?
                 (<Paper elevation={3} sx={{ marginTop: 2, minHeight: '100vh' }}>
                     <Document file={work?.data.pdf.url} onLoadSuccess={onDocumentLoadSuccess} noData="" loading="">
                         {Array.from(new Array(numPages), (_el, index) => (
@@ -46,7 +46,7 @@ export default function Work() {
                 </Paper>) :
                 (<PrismicRichText field={work?.data.body} />)
             }
-            {work?.data.production_notes &&
+            {work?.data.production_notes?.[0].text &&
                 <Box mt={5}>
                     <Typography variant="h6">Production Notes</Typography>
                     <PrismicRichText field={work?.data.production_notes}/>

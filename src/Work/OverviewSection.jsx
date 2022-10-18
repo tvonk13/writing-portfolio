@@ -10,18 +10,20 @@ export default function OverviewSection({ sectionTitle, documentType }) {
         window.scrollTo({top: 0});
     }, []);
 
-    return (
-        <Box display="flex" flexDirection="column">
-            <Typography
-                variant="h6"
-                color="primary.light"
-                sx={{ borderBottom: '1px solid', borderColor: 'primary.light' }}
-            >
-                {sectionTitle}
-            </Typography>
-            {documents?.map((document, index) =>
-                <Preview key={index} documentType={documentType} document={document} />
-            )}
-        </Box>
+    return documents?.length === 0
+        ? <></>
+        : (
+            <Box display="flex" flexDirection="column">
+                <Typography
+                    variant="h6"
+                    color="primary.light"
+                    sx={{ borderBottom: '1px solid', borderColor: 'primary.light' }}
+                >
+                    {sectionTitle}
+                </Typography>
+                {documents?.map((document, index) =>
+                    <Preview key={index} documentType={documentType} document={document} />
+                )}
+            </Box>
     );
 }

@@ -9,7 +9,6 @@ export default function Preview({ documentType, document }) {
                 display: 'flex',
                 flexDirection: 'column',
                 p: 2,
-                pb: 0,
                 mt: 1,
                 borderRadius: 1,
                 textDecoration: 'none',
@@ -27,11 +26,16 @@ export default function Preview({ documentType, document }) {
                 field={document?.data.title}
                 components={{heading1: ({children}) => <Box fontWeight={700}>{children}</Box>}}
             />
-            <Box fontSize="0.875rem" color="#999" mb={-1}>
-                {new Date(document.data.date).toLocaleDateString('en-us',
-                    {year: 'numeric', month: 'short', day: 'numeric'})}
-            </Box>
-            <PrismicRichText field={document?.data.description}/>
+            {document.data.date &&
+                <Box fontSize="0.875rem" color="#999" mb={-1}>
+                    {new Date(document.data.date).toLocaleDateString('en-us',
+                        { year: 'numeric', month: 'short', day: 'numeric' })}
+                </Box>
+            }
+            <PrismicRichText
+                field={document?.data.description}
+                components={{paragraph: ({children}) => <Box mt={2}>{children}</Box>}}
+            />
         </Box>
     )
 }

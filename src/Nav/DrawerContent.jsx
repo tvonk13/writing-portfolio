@@ -52,7 +52,7 @@ export default function DrawerContent({ onDrawerToggle }) {
                 <Stack spacing={1}>
                     <MenuItem variant="h5" component={Link} to="work" onClick={onDrawerToggle}>Work</MenuItem>
                     <SubMenu title="Features" onDrawerToggle={onDrawerToggle} documentType="feature" />
-                    <SubMenu title="Short Stories" onDrawerToggle={onDrawerToggle} documentType="short_story" />
+                    <SubMenu title="Shorts" onDrawerToggle={onDrawerToggle} documentType="short" />
                     <SubMenu title="Poetry" onDrawerToggle={onDrawerToggle} documentType="poem" />
                 </Stack>
                 <Stack direction="row" spacing={1}>
