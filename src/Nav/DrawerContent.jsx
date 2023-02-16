@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import SubMenu from "./SubMenu";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { Email } from "@mui/icons-material";
-import { useSinglePrismicDocument } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
+import { demoAbout } from "../demoInfo";
 
 const MenuItem = styled(Typography)(({theme}) => ({
     color: theme.palette.primary.light,
@@ -26,7 +26,7 @@ const SocialIcon = styled(IconButton)(({theme}) => ({
 }));
 
 export default function DrawerContent({ onDrawerToggle }) {
-    const [about] = useSinglePrismicDocument('about');
+    const about = demoAbout;
 
     return (
         <Box display="flex" justifyContent="center">
@@ -51,15 +51,15 @@ export default function DrawerContent({ onDrawerToggle }) {
                 <MenuItem variant="h5" component={Link} to="about" onClick={onDrawerToggle}>About</MenuItem>
                 <Stack spacing={1}>
                     <MenuItem variant="h5" component={Link} to="work" onClick={onDrawerToggle}>Work</MenuItem>
-                    <SubMenu title="Features" onDrawerToggle={onDrawerToggle} documentType="feature" />
-                    <SubMenu title="Shorts" onDrawerToggle={onDrawerToggle} documentType="short" />
+                    <SubMenu title="Essays" onDrawerToggle={onDrawerToggle} documentType="essay" />
+                    <SubMenu title="Short Stories" onDrawerToggle={onDrawerToggle} documentType="short" />
                     <SubMenu title="Poetry" onDrawerToggle={onDrawerToggle} documentType="poem" />
                 </Stack>
                 <Stack direction="row" spacing={1}>
-                    <SocialIcon href={about?.data.email.url} target={about?.data.email.target} rel="noopener" disableRipple>
+                    <SocialIcon href={about?.data?.email?.url} target={about?.data?.email?.target} rel="noopener" disableRipple>
                         <Email />
                     </SocialIcon>
-                    <SocialIcon href={about?.data.instagram.url} target={about?.data.instagram.target} rel="noopener" disableRipple>
+                    <SocialIcon href={about?.data?.instagram?.url} target={about?.data?.instagram?.target} rel="noopener" disableRipple>
                         <InstagramIcon />
                     </SocialIcon>
                 </Stack>

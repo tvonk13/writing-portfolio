@@ -3,6 +3,7 @@ import {AppBar, Box, IconButton, Toolbar, Typography} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import PermanentDrawer from "./PermanentDrawer";
 import TemporaryDrawer from "./TemporaryDrawer";
+import { demoName } from "../demoInfo";
 
 const drawerWidth = { sm: 275, md: 375 };
 
@@ -30,7 +31,7 @@ export default function Nav() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Nick Vonk
+                        {demoName}
                     </Typography>
                 </Toolbar>
             </AppBar>

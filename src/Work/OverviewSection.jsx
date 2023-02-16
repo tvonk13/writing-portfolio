@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import Preview from "./Preview";
 import { useEffect } from "react";
-import { useAllPrismicDocumentsByType } from "@prismicio/react";
+import { getDemoWorkByType } from "../demoInfo";
 
 export default function OverviewSection({ sectionTitle, documentType }) {
-    const [documents] = useAllPrismicDocumentsByType(documentType);
+    const documents = getDemoWorkByType(documentType);
 
     useEffect(() => {
         window.scrollTo({top: 0});

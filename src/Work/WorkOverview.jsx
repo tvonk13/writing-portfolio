@@ -7,7 +7,7 @@ export default function WorkOverview() {
             height="100%"
             spacing={5}
         >
-            <OverviewSection sectionTitle="Features" documentType="feature" />
+            <OverviewSection sectionTitle="Essays" documentType="essay" />
             <OverviewSection sectionTitle="Shorts" documentType="short" />
             <OverviewSection sectionTitle="Poetry" documentType="poem" />
         </Stack>

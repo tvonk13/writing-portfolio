@@ -4,6 +4,7 @@ import { Box, Collapse, Stack, styled, Typography } from '@mui/material';
 import KeyboardArrowUpRounded from '@mui/icons-material/KeyboardArrowUpRounded';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { Link } from 'react-router-dom';
+import { getDemoWorkByType, isDemo } from "../demoInfo";
 
 const SubMenuItem = styled(Typography)(({theme}) => ({
     color: theme.palette.text.primary,
@@ -25,7 +26,7 @@ const SubMenuItem = styled(Typography)(({theme}) => ({
 }));
 
 export default function SubMenu({ documentType, title, onDrawerToggle}) {
-    const [documents] = useAllPrismicDocumentsByType(documentType);
+    const documents = getDemoWorkByType(documentType);
     const [open, setOpen] = useState(false);
 
     const handleToggleMenu = () => setOpen(prevState => !prevState);

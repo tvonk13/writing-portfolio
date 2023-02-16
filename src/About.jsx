@@ -1,9 +1,10 @@
 import {Box, Stack, Typography} from "@mui/material";
 import { useEffect } from "react";
-import { useSinglePrismicDocument, PrismicRichText } from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
+import { demoAbout } from "./demoInfo";
 
 export default function About() {
-    const [about] = useSinglePrismicDocument('about');
+    const about = demoAbout;
 
     useEffect(() => {
         window.scrollTo({top: 0});

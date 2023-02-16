@@ -1,17 +1,16 @@
-import { Box, Paper, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Paper, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { PrismicRichText, usePrismicDocumentByUID } from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+import { getDemoWorkByType } from "../demoInfo";
 
 export default function Work() {
     let {type, documentUid} = useParams();
-    const [work] = usePrismicDocumentByUID(type, documentUid);
+    const work = getDemoWorkByType(type).find(work => work.uid === documentUid);
     const [numPages, setNumPages] = useState(0);
-    const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up('sm'));
     const contentContainer = document.getElementById('content-container');
-    const pdfWidth = contentContainer?.offsetWidth - (matches ? 160 : 64);
+    const pdfWidth = contentContainer?.offsetWidth;
 
     useEffect(() => {
         window.scrollTo({top: 0});
@@ -32,7 +31,7 @@ export default function Work() {
                 </Box>
             }
             {work?.data.pdf?.url ?
-                (<Paper elevation={3} sx={{ marginTop: 2, minHeight: '100vh' }}>
+                (<Paper id="content-container" elevation={3} sx={{ marginTop: 2, minHeight: '100vh', maxWidth: 750 }}>
                     <Document file={work?.data.pdf.url} onLoadSuccess={onDocumentLoadSuccess} noData="" loading="">
                         {Array.from(new Array(numPages), (_el, index) => (
                             <Page
@@ -44,12 +43,12 @@ export default function Work() {
                         ))}
                     </Document>
                 </Paper>) :
-                (<PrismicRichText field={work?.data.body} />)
+                (<Typography>{work?.data.body}</Typography>)
             }
-            {work?.data.production_notes?.[0].text &&
+            {work?.data?.production_notes?.[0]?.text &&
                 <Box mt={5}>
                     <Typography variant="h6">Production Notes</Typography>
-                    <PrismicRichText field={work?.data.production_notes}/>
+                    <PrismicRichText field={work?.data?.production_notes}/>
                 </Box>
             }
         </Stack>

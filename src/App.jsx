@@ -12,7 +12,7 @@ function App() {
           <Box display="flex">
               <CssBaseline />
               <Nav />
-              <Box minHeight='100vh' py={5} px={{ xs: 4, sm: 10 }} width="100%" id="content-container" >
+              <Box minHeight='100vh' py={5} px={{ xs: 4, sm: 10 }} width="100%" >
                   <Box height={{ xs: '40px', sm: '0px' }} />
                   <Routes>
                       <Route exact path="/:type/:documentUid" element={<Work />} />
