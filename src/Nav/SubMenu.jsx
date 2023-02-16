@@ -1,10 +1,10 @@
-import { PrismicRichText, useAllPrismicDocumentsByType } from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 import { useState } from 'react';
 import { Box, Collapse, Stack, styled, Typography } from '@mui/material';
 import KeyboardArrowUpRounded from '@mui/icons-material/KeyboardArrowUpRounded';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { Link } from 'react-router-dom';
-import { getDemoWorkByType, isDemo } from "../demoInfo";
+import { getDemoWorkByType } from "../demoInfo";
 
 const SubMenuItem = styled(Typography)(({theme}) => ({
     color: theme.palette.text.primary,

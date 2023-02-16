@@ -19,10 +19,10 @@ export default function About() {
                 mb={{ xs: 2, xl: 0 }}
                 maxWidth={500}
             >
-                {about?.data.profile_image.url &&
+                {about?.data?.profile_image?.url &&
                     <img
                         src={about?.data.profile_image.url}
-                        alt="profile"
+                        alt="Profile Image"
                         style={{ width: '100%', borderRadius: '50%' }}
                     />
                 }

@@ -1,5 +1,5 @@
 import DemoPDF from './assets/demo.pdf';
-import DemoProfile from './assets/demo-profile.jpeg';
+import DemoProfile from './assets/demo-profile.jpg';
 
 const demoName = 'Nina Demo';
 
