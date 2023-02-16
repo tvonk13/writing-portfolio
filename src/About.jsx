@@ -11,17 +11,23 @@ export default function About() {
     }, []);
 
     return (
-        <Box display="flex" flexDirection={{ xs: 'column', lg: 'row' }} alignItems={{ xs: 'center', lg: 'flex-start' }}>
-            <Box width={{ xs: '90%', lg: '50%'}} mr={{ xs: 0, lg: 10}} mb={{ xs: 2, lg: 0 }} maxWidth={500}>
+        <Box display="flex" flexDirection={{ xs: 'column', xl: 'row' }} alignItems={{ xs: 'center', xl: 'flex-start' }}>
+            <Box
+                flexShrink={0}
+                width={{ xs: '70%', lg: '50%'}}
+                mr={{ xs: 0, xl: 10}}
+                mb={{ xs: 2, xl: 0 }}
+                maxWidth={500}
+            >
                 {about?.data.profile_image.url &&
                     <img
                         src={about?.data.profile_image.url}
                         alt="profile"
-                        style={{ width: '100%' }}
+                        style={{ width: '100%', borderRadius: '50%' }}
                     />
                 }
             </Box>
-            <Stack spacing={1} width={{ xs: '90%', lg: '50%'}}>
+            <Stack spacing={1}>
                 <PrismicRichText
                     field={about?.data.about}
                     components={{
